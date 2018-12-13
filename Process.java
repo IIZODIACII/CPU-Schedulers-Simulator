@@ -1,6 +1,7 @@
 public class Process {
 
     private String name;
+    private int id;
     private int ArrTime;
     private int BTime;
     private int priority;
@@ -8,7 +9,8 @@ public class Process {
 
     Process(){}
 
-    Process(String n, int At, int Bt, int pr){
+    Process(int i, String n, int At, int Bt, int pr){
+        id = i;
         name = n;
         ArrTime = At;
         BTime = Bt;
@@ -27,6 +29,9 @@ public class Process {
     public void set_pr(int p) {
         priority = p;
     }
+    public void set_id(int i){
+        id = i;
+    }
     public String get_name(){
         return name;
     }
@@ -38,6 +43,9 @@ public class Process {
     }
     public int get_pr(){
         return priority;
+    }
+    public int get_id(){
+        return id;
     }
 
 }
