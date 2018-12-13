@@ -39,7 +39,7 @@ public class Main {
 
             System.out.println();
 
-            Process obj = new Process(name, arrtime, btime, pr);
+            Process obj = new Process(i, name, arrtime, btime, pr);
             processes.add(obj);
         }
 
@@ -49,7 +49,7 @@ public class Main {
 
         /*
         for(int i = 0; i < processes.size(); i++)
-            System.out.println(processes.get(i).get_name() + " " + processes.get(i).get_ArrTime()
+            System.out.println(processes.get(i).get_id() + " " + processes.get(i).get_name() + " " + processes.get(i).get_ArrTime()
             + " " + processes.get(i).get_BTime() + " " + processes.get(i).get_pr());*/
     }
 }
