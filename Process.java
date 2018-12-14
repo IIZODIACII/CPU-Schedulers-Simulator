@@ -5,7 +5,8 @@ public class Process {
     private int ArrTime;
     private int BTime;
     private int priority;
-
+    private int waiting;
+    private int tat;
 
     Process(){}
 
@@ -32,6 +33,12 @@ public class Process {
     public void set_id(int i){
         id = i;
     }
+    public void set_waiting(int w){
+        waiting = w;
+    }
+    public void set_tat(int t){
+        tat = t;
+    }
     public String get_name(){
         return name;
     }
@@ -46,6 +53,12 @@ public class Process {
     }
     public int get_id(){
         return id;
+    }
+    public int get_waiting(){
+        return waiting;
+    }
+    public int get_tat(){
+        return tat;
     }
 
 }
