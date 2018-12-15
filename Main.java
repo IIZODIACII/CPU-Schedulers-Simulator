@@ -43,13 +43,20 @@ public class Main {
             processes.add(obj);
         }
 
+        Process[] array = processes.toArray(new Process[processes.size()]);
+
+        SJF.findavgTime(array,array.length);
 
 
 
 
-        /*
-        for(int i = 0; i < processes.size(); i++)
-            System.out.println(processes.get(i).get_id() + " " + processes.get(i).get_name() + " " + processes.get(i).get_ArrTime()
-            + " " + processes.get(i).get_BTime() + " " + processes.get(i).get_pr());*/
+
+
+    }
+
+    void printArrayList(ArrayList<Process> processes){
+        for (Process process : processes)
+            System.out.println(process.get_id() + " " + process.get_name() + " " + process.get_ArrTime()
+                    + " " + process.get_BTime() + " " + process.get_pr());
     }
 }
