@@ -45,11 +45,11 @@ public class Main {
 
         Process[] array = processes.toArray(new Process[processes.size()]);
 
-        System.out.println("Output For SJF:\n");
+        System.out.println("\nOutput For SJF:\n");
         SJF.findavgTime(array,array.length);
 
         processes.sort((p1, p2) -> p1.get_ArrTime() - (p2.get_ArrTime())); // Sorting the processes according to ArrivalTime
-        System.out.println("Output For Priority Scheduler:\n");
+        System.out.println("\nOutput For Priority Scheduler:\n");
 
         Priority_Scheduler obj = new Priority_Scheduler(processes, ct);
         obj.Start();
