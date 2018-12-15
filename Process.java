@@ -3,10 +3,13 @@ public class Process {
     private String name;
     private int id;
     private int ArrTime;
-    private int BTime;
+    private int BTime; // BurstTime
+    private int CBTime; // a copy of BTime
     private int priority;
     private int waiting;
-    private int tat;
+    private int tat; // TurnAroundTime
+    private int ct; // CompletionTime
+    private int rt; // ResponseTime
 
     Process(){}
 
@@ -15,6 +18,7 @@ public class Process {
         name = n;
         ArrTime = At;
         BTime = Bt;
+        CBTime = Bt;
         priority = pr;
     }
 
@@ -26,6 +30,9 @@ public class Process {
     }
     public void set_BTime(int t){
         BTime = t;
+    }
+    public void set_CBTime(int t){
+        CBTime = t;
     }
     public void set_pr(int p) {
         priority = p;
@@ -39,6 +46,13 @@ public class Process {
     public void set_tat(int t){
         tat = t;
     }
+    public void set_ct(int t){
+        ct = t;
+    }
+    public void set_rt(int t){
+        rt = t;
+    }
+
     public String get_name(){
         return name;
     }
@@ -47,6 +61,9 @@ public class Process {
     }
     public int get_BTime(){
         return BTime;
+    }
+    public int get_CBTime(){
+        return CBTime;
     }
     public int get_pr(){
         return priority;
@@ -60,5 +77,12 @@ public class Process {
     public int get_tat(){
         return tat;
     }
+    public int get_ct(){
+        return ct;
+    }
+    public int get_rt(){
+        return rt;
+    }
+
 
 }
