@@ -43,11 +43,12 @@ public class Main {
             processes.add(obj);
         }
 
+        processes.sort((p1, p2) -> p1.get_ArrTime() - (p2.get_ArrTime())); // Sorting the processes according to ArrivalTime
 
+        Priority_Scheduler obj = new Priority_Scheduler(processes, ct);
+        obj.Start();
 
-
-
-        /*
+    /*
         for(int i = 0; i < processes.size(); i++)
             System.out.println(processes.get(i).get_id() + " " + processes.get(i).get_name() + " " + processes.get(i).get_ArrTime()
             + " " + processes.get(i).get_BTime() + " " + processes.get(i).get_pr());*/
