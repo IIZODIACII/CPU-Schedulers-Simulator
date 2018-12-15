@@ -15,11 +15,11 @@ public class Priority_Scheduler {
     ArrayList<Process> arr = new ArrayList<Process>();
     ArrayList<Process> working = new ArrayList<Process>();
     private int ContextSwitch;
-    private int limit = 2; // reduce the priority of a waiting process every 10 units of time
+    private int limit = 2; // reduce the priority of a waiting process every 2 units of time
     private boolean add = true;
     private boolean sw = false;
-    Priority_Scheduler(){}
 
+    Priority_Scheduler(){}
     Priority_Scheduler(ArrayList prs, int t) {
         ContextSwitch = t;
         arr = prs;
@@ -117,8 +117,6 @@ public class Priority_Scheduler {
 
     private Process Get_Nxt(Process nxt, int idx, int time){
         Process same = nxt;
-        if (processes.size() == 1)
-            return processes.peek();
         for(Process pr : processes) {
             if (pr.get_ArrTime() <= time && pr.get_BTime() > 0) {
                 if(nxt.get_BTime() == 0) {
@@ -133,7 +131,6 @@ public class Priority_Scheduler {
                     add = false;
                     break;
                 }
-
             }
         }
         if (same == nxt){
