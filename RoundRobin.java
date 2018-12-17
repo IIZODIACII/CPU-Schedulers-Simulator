@@ -4,6 +4,7 @@ public class RoundRobin {
 		// total average times 
         int total_wt = 0; 
         int total_tat = 0; 
+        String seq = new String();
 		
         int[] burst_time = new int[n];
         int[] arrival_time = new int[n];
@@ -28,14 +29,15 @@ public class RoundRobin {
             					t = t + q ;
             					burst_time[i] = burst_time[i] - q ;
             					arrival_time[i] = arrival_time[i] + q;
+            					seq += "->" + proc[i].get_name(); 
             				}
             				else {
             					// last process 
             					t = t + burst_time[i];
             					comp[i] = t - proc[i].get_ArrTime();
-                                w[i] = t - proc[i].get_BTime() - proc[i].get_ArrTime();
-                                burst_time[i] = 0;
-
+                                		w[i] = t - proc[i].get_BTime() - proc[i].get_ArrTime();
+                                		burst_time[i] = 0;
+            					seq += "->" + proc[i].get_name(); 
             				}
             			}
             		}
@@ -49,14 +51,15 @@ public class RoundRobin {
                     					t = t + q ;
                     					burst_time[j] = burst_time[j] - q ;
                     					arrival_time[i] = arrival_time[j] + q;
+                    					seq += "->" + proc[i].get_name(); 
                     				}
                     				else {
                     					// last process 
                     					t = t + burst_time[j];
                     					comp[i] = t - proc[j].get_ArrTime();
-                                        w[j] = t - proc[j].get_BTime() - proc[j].get_ArrTime();
-                                        burst_time[j] = 0;
-
+                                 		      	w[j] = t - proc[j].get_BTime() - proc[j].get_ArrTime();
+                                  		     	burst_time[j] = 0;
+                    					seq += "->" + proc[i].get_name(); 
                     				}           					
             				}           				
             			}
@@ -67,13 +70,15 @@ public class RoundRobin {
             					t = t + q ;
             					burst_time[i] = burst_time[i] - q ;
             					arrival_time[i] = arrival_time[i] + q;
+            					seq += "->" + proc[i].get_name(); 
             				}
             				else {
             					// last process 
             					t = t + burst_time[i];
             					comp[i] = t - proc[i].get_ArrTime();
-                                w[i] = t - proc[i].get_BTime() - proc[i].get_ArrTime();
-                                burst_time[i] = 0;
+                                		w[i] = t - proc[i].get_BTime() - proc[i].get_ArrTime();
+                                		burst_time[i] = 0;
+            					seq += "->" + proc[i].get_name();
 
             				}
             	}
@@ -89,6 +94,9 @@ public class RoundRobin {
                 break; 
             } 
             	}
+        System.out.println("Process Execution Order");
+        System.out.println(seq); 
+
         System.out.println("Processes"+"\t\t"+ "Burst time"+"\t\t"+"Waiting time"+"\t\t"+"Turn around time");
         
         for (int i = 0; i < n; i++) {
