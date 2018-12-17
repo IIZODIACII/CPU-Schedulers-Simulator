@@ -36,6 +36,7 @@ public class Main {
 
             System.out.print("Process ("+ (i + 1) +") priority: ");
             pr = in.nextInt();
+            in.close();
 
             System.out.println();
 
