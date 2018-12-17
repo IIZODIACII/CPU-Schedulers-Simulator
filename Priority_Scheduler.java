@@ -44,8 +44,13 @@ public class Priority_Scheduler {
                         time++;
                 }
             }
-            else
-                time++;
+            else{
+                if (nxt.get_ArrTime() > time) // if the new process didn't arrive yet
+                    time +=  (nxt.get_ArrTime() - time); // add the remaining time untill the new process arrives
+                else
+                    time++;
+            }
+
 
             if (add || sw) { // if there is a switch or just a new process should start running now
                 working.add(nxt);
@@ -131,6 +136,14 @@ public class Priority_Scheduler {
                     nxt = pr;
                     sw = true;
                     add = false;
+                    break;
+                }
+            }
+            else if (pr.get_ArrTime() > time && processes.size() == 1) {
+                if (nxt.get_BTime() == 0) { // if the currently running process has finished its work get a new one
+                    nxt = pr;
+                    add = true;
+                    sw = false;
                     break;
                 }
             }
