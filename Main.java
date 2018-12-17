@@ -36,13 +36,13 @@ public class Main {
 
             System.out.print("Process ("+ (i + 1) +") priority: ");
             pr = in.nextInt();
-            in.close();
 
             System.out.println();
 
             Process obj = new Process(i, name, arrtime, btime, pr);
             processes.add(obj);
         }
+        in.close();
 
         Process[] array = processes.toArray(new Process[processes.size()]);
 
