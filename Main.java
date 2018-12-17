@@ -47,6 +47,10 @@ public class Main {
 
         System.out.println("\nOutput For SJF:\n");
         SJF.findavgTime(array,array.length);
+        
+        System.out.println("\nOutput For Round Robin:\n");
+        RoundRobin.roundRobin(array ,array.length, rtq);
+
 
         processes.sort((p1, p2) -> p1.get_ArrTime() - (p2.get_ArrTime())); // Sorting the processes according to ArrivalTime
         System.out.println("\nOutput For Priority Scheduler:\n");
