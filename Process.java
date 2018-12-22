@@ -10,7 +10,12 @@ public class Process {
     private int tat; // TurnAroundTime
     private int ct; // CompletionTime
     private int rt; // ResponseTime
-
+    String Name;
+    int Burst;
+    int Quantum;
+    int Arrival;
+    int Priorty;
+    int Index;
     Process(){}
 
     Process(int i, String n, int At, int Bt, int pr){
@@ -21,6 +26,17 @@ public class Process {
         CBTime = Bt;
         priority = pr;
     }
+
+    public Process(String Name,int Burst,int Quantum,int Arrival,int priorty,int Index){
+        this.Name=Name;
+        this.Burst=Burst;
+        this.Quantum=Quantum;
+        this.Arrival=Arrival;
+        this.Priorty=priorty;
+        this.Index=Index;
+    }
+
+
 
     public void set_name(String n){
         name = n;
