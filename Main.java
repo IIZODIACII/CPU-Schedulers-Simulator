@@ -1,6 +1,7 @@
 
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.Vector;
 
 public class Main {
 
@@ -19,7 +20,7 @@ public class Main {
         ct = in.nextInt();
 
         ArrayList<Process> processes = new ArrayList<Process>();
-
+        Vector<Process> v=new Vector<Process>();
         System.out.println();
         for(int i = 0; i < num; i++){
             String name;
@@ -41,6 +42,7 @@ public class Main {
             System.out.println();
 
             Process obj = new Process(i, name, arrtime, btime, pr);
+            v.add(new Process(name, btime, rtq, arrtime, pr, i));
             processes.add(obj);
         }
         in.close();
@@ -59,6 +61,23 @@ public class Main {
 
         Priority_Scheduler obj = new Priority_Scheduler(processes, ct);
         obj.Start();
+
+
+        System.out.println("\nOutput For AG:\n");
+        AG_Schduler AG=new AG_Schduler(v);
+        AG.Schedule();
+        System.out.println(AG.Name);
+        System.out.println("Waiting Time");
+        System.out.println(AG.Waiting_Time);
+        System.out.println("TurnAround Time");
+        System.out.println(AG.Turnaround_Time);
+        System.out.println("The Quantum History");
+        for(int i=0;i<AG.Quantum_History.size();i+=num){
+            System.out.print("[");
+            for(int j=i;j<num+i;j++)System.out.print(AG.Quantum_History.get(j)+" ");
+            System.out.print("]");
+            System.out.println("");
+        }
 
     }
 
