@@ -42,6 +42,7 @@ public class Main {
             Process obj = new Process(i, name, arrtime, btime, pr);
             processes.add(obj);
         }
+        in.close();
 
         Process[] array = processes.toArray(new Process[processes.size()]);
 

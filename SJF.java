@@ -54,7 +54,7 @@ public class SJF {
                 }
             }
             t++;
-            System.out.print("P" + proc[shortest].get_name() +" ");
+            System.out.print(proc[shortest].get_name() +" ");
         }
         System.out.println();
     }
